@@ -4,8 +4,6 @@ import json
 from datetime import datetime, time, timedelta
 import asyncio
 
-with open('setting.json', 'r', encoding='utf-8') as jfile:
-    jdata = json.load(jfile)
 bot = commands.Bot(command_prefix='')
 
 
@@ -68,5 +66,8 @@ async def task():
 
 
 if __name__ == "__main__":
+    with open('setting.json', 'r', encoding='utf-8') as jfile:
+        jdata = json.load(jfile)
+
     bot.loop.create_task(task())
     bot.run(jdata['TOKEN'])
